@@ -1,0 +1,6 @@
+INSERT INTO Products
+(product_name, price, stock_quantity)
+VALUES
+('Monitor', 250, 5);
+
+ROLLBACK;

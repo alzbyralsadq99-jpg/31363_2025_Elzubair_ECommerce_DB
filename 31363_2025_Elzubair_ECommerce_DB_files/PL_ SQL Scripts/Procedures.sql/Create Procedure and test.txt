@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE show_employee(
+    p_employee_id NUMBER
+)
+IS
+    v_name Employees.employee_name%TYPE;
+
+BEGIN
+
+    SELECT employee_name
+    INTO v_name
+    FROM Employees
+    WHERE employee_id = p_employee_id;
+
+    DBMS_OUTPUT.PUT_LINE('Employee: ' || v_name);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Employee not found.');
+
+END;
+/

@@ -1,0 +1,17 @@
+CREATE OR REPLACE PROCEDURE show_products
+IS
+    CURSOR c_products IS
+        SELECT product_name, price, stock_quantity
+        FROM Products;
+
+BEGIN
+    FOR rec IN c_products LOOP
+        DBMS_OUTPUT.PUT_LINE(
+            rec.product_name || 
+            ' - Price: '  rec.price 
+            ' - Stock: ' || rec.stock_quantity
+        );
+    END LOOP;
+
+END;
+/

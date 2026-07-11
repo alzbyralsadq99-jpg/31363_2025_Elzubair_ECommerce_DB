@@ -1,0 +1,64 @@
+-- Employees
+
+INSERT INTO Employees (employee_name, email, role)
+VALUES ('Ahmed Ali', 'ahmed@gmail.com', 'Sales Manager');
+
+INSERT INTO Employees (employee_name, email, role)
+VALUES ('Sara Mohamed', 'sara@gmail.com', 'Cashier');
+
+INSERT INTO Employees (employee_name, email, role)
+VALUES ('John Peter', 'john@gmail.com', 'Sales Officer');
+
+
+-- Products
+
+INSERT INTO Products (product_name, price, stock_quantity)
+VALUES ('Laptop', 800, 15);
+
+INSERT INTO Products (product_name, price, stock_quantity)
+VALUES ('Smartphone', 500, 20);
+
+INSERT INTO Products (product_name, price, stock_quantity)
+VALUES ('Headphones', 50, 30);
+
+
+-- Customers
+
+INSERT INTO Customers (customer_name, email, phone)
+VALUES ('Ali Hassan', 'ali@gmail.com', '0780000001');
+
+INSERT INTO Customers (customer_name, email, phone)
+VALUES ('Mary John', 'mary@gmail.com', '0780000002');
+
+INSERT INTO Customers (customer_name, email, phone)
+VALUES ('David Peter', 'david@gmail.com', '0780000003');
+
+
+-- Holidays
+
+INSERT INTO Holidays (holiday_date, holiday_name)
+VALUES (DATE '2026-01-01', 'New Year');
+
+INSERT INTO Holidays (holiday_date, holiday_name)
+VALUES (DATE '2026-07-01', 'Independence Day');
+
+INSERT INTO Holidays (holiday_date, holiday_name)
+VALUES (DATE '2026-12-25', 'Christmas Day');
+
+
+-- Sales
+
+INSERT INTO Sales 
+(product_id, employee_id, customer_id, quantity, total_amount)
+VALUES (1, 1, 1, 2, 1600);
+
+INSERT INTO Sales 
+(product_id, employee_id, customer_id, quantity, total_amount)
+VALUES (2, 2, 2, 1, 500);
+
+INSERT INTO Sales 
+(product_id, employee_id, customer_id, quantity, total_amount)
+VALUES (3, 3, 3, 3, 150);
+
+
+COMMIT;

@@ -1,0 +1,15 @@
+CREATE OR REPLACE TRIGGER trg_audit_products
+AFTER INSERT ON Products
+FOR EACH ROW
+
+BEGIN
+    INSERT INTO Audit_Log
+    (action_type, table_name, user_name, details)
+    VALUES
+    ('INSERT',
+     'PRODUCTS',
+     USER,
+     'New product added: ' || :NEW.product_name);
+
+END;
+/

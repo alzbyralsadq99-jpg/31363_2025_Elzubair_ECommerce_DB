@@ -1,0 +1,42 @@
+CREATE OR REPLACE PACKAGE BODY pkg_ecommerce_management AS
+
+    PROCEDURE record_sale(
+        p_product_id NUMBER,
+        p_employee_id NUMBER,
+        p_customer_id NUMBER,
+        p_quantity NUMBER
+    )
+
+    IS
+        v_price NUMBER;
+        v_total NUMBER;
+
+    BEGIN
+
+        SELECT price
+        INTO v_price
+        FROM Products
+        WHERE product_id = p_product_id;
+
+        v_total := v_price * p_quantity;
+
+        INSERT INTO Sales
+        (product_id, employee_id, customer_id, quantity, total_amount)
+        VALUES
+        (p_product_id, p_employee_id, p_customer_id, p_quantity, v_total);
+
+        UPDATE Products
+        SET stock_quantity = stock_quantity - p_quantity
+        WHERE product_id = p_product_id;
+
+        COMMIT;
+
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+            RAISE;
+
+    END record_sale;
+
+END pkg_ecommerce_management;
+/

@@ -1,0 +1,11 @@
+CREATE OR REPLACE PACKAGE pkg_ecommerce_management AS
+
+    PROCEDURE record_sale(
+        p_product_id NUMBER,
+        p_employee_id NUMBER,
+        p_customer_id NUMBER,
+        p_quantity NUMBER
+    );
+
+END pkg_ecommerce_management;
+/

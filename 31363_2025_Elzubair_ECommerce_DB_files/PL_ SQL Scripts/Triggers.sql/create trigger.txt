@@ -1,0 +1,22 @@
+CREATE OR REPLACE TRIGGER trg_block_holiday_sales
+BEFORE INSERT ON Sales
+FOR EACH ROW
+
+DECLARE
+    v_count NUMBER;
+
+BEGIN
+    SELECT COUNT(*)
+    INTO v_count
+    FROM Holidays
+    WHERE holiday_date = TRUNC(SYSDATE);
+
+    IF v_count > 0 THEN
+        RAISE_APPLICATION_ERROR(
+            -20001,
+            'Sales are not allowed on public holidays'
+        );
+    END IF;
+
+END;
+/
