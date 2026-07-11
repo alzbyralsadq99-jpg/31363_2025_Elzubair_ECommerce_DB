@@ -1,0 +1,144 @@
+Query Explanation
+
+1. Display Employees
+
+SQL:
+SELECT * FROM Employees;
+
+Explanation:
+Displays all employee information stored in the Employees table.
+
+---
+
+2. Display Products
+
+SQL:
+SELECT * FROM Products;
+
+Explanation:
+Shows product information including product name, price, and stock quantity.
+
+---
+
+3. Display Customers
+
+SQL:
+SELECT * FROM Customers;
+
+Explanation:
+Retrieves all customer information from the database.
+
+---
+
+4. Display Sales
+
+SQL:
+SELECT * FROM Sales;
+
+Explanation:
+Shows all sales transactions recorded in the system.
+
+---
+
+5. Sales Details Using JOIN
+
+SQL:
+SELECT
+s.sale_id,
+p.product_name,
+e.employee_name,
+s.quantity,
+s.total_amount
+FROM Sales s
+JOIN Products p
+ON s.product_id = p.product_id
+JOIN Employees e
+ON s.employee_id = e.employee_id;
+
+Explanation:
+Combines sales, products, and employees tables to display complete sales details.
+
+---
+
+6. Calculate Total Sales
+
+SQL:
+SELECT SUM(total_amount) AS Total_Sales
+FROM Sales;
+
+Explanation:
+Calculates the total revenue generated from all sales.
+
+---
+
+7. Check Triggers
+
+SQL:
+SELECT trigger_name, status
+FROM user_triggers;
+
+Explanation:
+Displays created triggers and their status.
+
+---
+
+8. View Audit Log
+
+SQL:
+SELECT * FROM Audit_Log;
+
+Explanation:
+Shows database activities recorded by the audit system.
+
+---
+
+9. Test Function
+
+SQL:
+SELECT calculate_total(800,2) AS Total
+FROM dual;
+
+Explanation:
+Tests the function that calculates total price based on product price and quantity.
+
+---
+
+10. Execute Procedure
+
+SQL:
+SET SERVEROUTPUT ON;
+
+EXEC show_products;
+
+Explanation:
+Runs the procedure that displays product information using a cursor.
+
+---
+
+11. Transaction Control (ROLLBACK)
+
+SQL:
+INSERT INTO Products
+(product_name, price, stock_quantity)
+VALUES
+('Monitor',250,5);
+
+ROLLBACK;
+
+Explanation:
+Cancels the insert operation and restores the previous database state.
+
+---
+
+12. DDL Operations
+
+SQL:
+CREATE TABLE Test_DDL(
+id NUMBER PRIMARY KEY,
+name VARCHAR2(50)
+);
+
+DROP TABLE Test_DDL;
+
+Explanation:
+Demonstrates creating and removing database objects.
